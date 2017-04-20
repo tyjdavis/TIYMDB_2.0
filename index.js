@@ -1,4 +1,3 @@
-
 let nowPlayingFromAPI = fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`)
 .then(response => response.json()) //take above promise and convert to json
 .then(object => object.results) //taking the results array from the json
