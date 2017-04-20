@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Movies</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <h2><a href="#">New Movies</a></h2>
+    <h1>In Theaters</h1>
+    <div class="handlebars-demo"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+
+    <script id="movies-now-playing-list" type="text/x-handlebars-template">
+      <div class="entry">
+        <div class="content">
+          <img class="shadow" src="https://image.tmdb.org/t/p/w300{{poster_path}}"/>
+          <div class="info">
+            <h1><a href="#">{{title}}</a></h1>
+            <p class="runtime">{{runtime}} mins</p>
+            <p class="release"><strong>Release Date:</strong> {{release_date}}</p>
+            <p class="overview">{{overview}}</p>
+            <p class="rating"><strong>User Rating:</strong> {{vote_average}}</p>
+            <p class="crew"><strong>Director:</strong> {{crew}}</p>
+            <p class="cast"><strong>Stars:</strong> {{cast}}</p>
+            <button>Watch Trailer</button> <button>Add to Watchlist</button> <button>Get Tickets</button>
+          </div>
+        </div>
+      </div>
+    </script>
+  <script src="api_key.js"></script>
+  <script src="index.js"></script>
+  </body>
+</html>
