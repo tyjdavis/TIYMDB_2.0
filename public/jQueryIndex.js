@@ -1,7 +1,13 @@
-// Get the initial list of top movies from moviedb.
-$.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&language=en-US&page=1`, function(data){
 
-    let movies = data.results.map((obj)=>{
+let arrayOfMovies = [];
+
+function main(){
+  getData().then(getRuntimes).then(getCasts).then(getYTs).then(displayMovies);
+}
+
+function getData(){
+  return $.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&language=en-US&page=1`, function(data){
+    arrayOfMovies = data.results.map((obj)=>{
       let movie = new Movie();
       movie.poster_path = obj.poster_path;
       movie.overview = obj.overview;
@@ -11,34 +17,40 @@ $.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&la
       movie.id = obj.id;
       return movie; //take this movie for each iteration and store it in Movie
     });
+  });
+}
 
-    // Take each movie and get runtime.
-    movies = movies.map((movie)=>{
-      $.get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${keys.moviedb}&language=en-US`, function(data){
-        movie.runtime = data.runtime;
-      });
-      return movie;
+function getRuntimes(){
+  return arrayOfMovies.map((movie)=>{
+    return $.get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${keys.moviedb}&language=en-US`, function(data){
+      movie.runtime = data.runtime;
     });
+  });
+}
 
-    // Take each movie and get cast and crew.
-    movies = movies.map((movie)=>{
-      $.get(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${keys.moviedb}`, function(data) {
-        movie.cast = data.cast.slice(0, 3);
-        movie.cast = movie.cast.map((obj)=> obj.name);
-        movie.crew = data.crew[0].name;
-      });
-      return movie;
+function getCasts(){
+  return arrayOfMovies.map((movie)=>{
+    return $.get(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${keys.moviedb}`, function(data) {
+      movie.cast = data.cast.slice(0, 3);
+      movie.cast = movie.cast.map((obj)=> obj.name);
+      movie.cast = movie.cast.join(', ');
+      movie.crew = data.crew[0].name;
     });
+  });
+}
 
-    // Take each movie and get youtube ID link
-    movies = movies.map((movie)=>{
-      $.get(`https://www.googleapis.com/youtube/v3/search?key=${keys.google}&part=snippet&q=${movie.title}}trailer`, function(data){
-        movie.YTID = data.items[0].id.videoId;
-      });
-      return movie;
+function getYTs(){
+  return arrayOfMovies.map((movie)=>{
+    return $.get(`https://www.googleapis.com/youtube/v3/search?key=${keys.google}&part=snippet&q=${movie.title}}trailer`, function(data){
+      movie.YTID = data.items[0].id.videoId;
     });
+  });
+}
 
-    movies.forEach((movie)=>{
-      movie.display();
-    });
-});
+function displayMovies(){
+  arrayOfMovies.forEach((movie)=>{
+    movie.display();
+  });
+}
+
+main();

@@ -7,7 +7,11 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
+<<<<<<< HEAD
     height: '680',
+=======
+    height: '600',
+>>>>>>> aaf63e5e9ddc7f39e11ac9ccaa4fca2bce5da3e9
     width: '900',
     videoId: 'M7lc1UVf-VE',
     events: {
@@ -16,7 +20,6 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
-// 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
   event.target.playVideo();
 }
