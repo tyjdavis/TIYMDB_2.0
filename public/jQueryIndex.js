@@ -1,8 +1,7 @@
 // Get the initial list of top movies from moviedb.
-$.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&language=en-US&page=1`, function(object){
-    let arr = object.results;
+$.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&language=en-US&page=1`, function(data){
 
-    let movies = arr.map((obj)=>{
+    let movies = data.results.map((obj)=>{
       let movie = new Movie();
       movie.poster_path = obj.poster_path;
       movie.overview = obj.overview;
@@ -10,7 +9,7 @@ $.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&la
       movie.title = obj.title;
       movie.vote_average = obj.vote_average;
       movie.id = obj.id;
-      return movie;
+      return movie; //take this movie for each iteration and store it in Movie
     });
 
     // Take each movie and get runtime.
@@ -43,14 +42,3 @@ $.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&la
       movie.display();
     });
 });
-
-//putting data into the html
-
-let source = document.querySelector("#movies-now-playing-list").innerHTML;
-let template = Handlebars.compile(source);
-
-function placeInTemplate(movies) {
-    let html = movies.map(obj => template(obj)).join('');
-    let destination = document.querySelector('.handlebars-demo');
-    destination.innerHTML = html;
-}
