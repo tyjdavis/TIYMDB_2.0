@@ -11,19 +11,6 @@ function main(){
 main();
 
 function getData(){
-<<<<<<< HEAD
-  return $.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&language=en-US&page=1`, function(data){
-    arrayOfMovies = data.results.map((obj)=>{
-      let movie = new Movie();
-      movie.poster_path = obj.poster_path;
-      movie.overview = obj.overview;
-      movie.release_date = obj.release_date;
-      movie.title = obj.title;
-      movie.vote_average = obj.vote_average;
-      movie.id = obj.id;
-      return movie; //take this movie for each iteration and store it in Movie
-    });
-=======
   let movieurl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&language=en-US&page=1`;
   $.ajax({
     url: movieurl,
@@ -40,7 +27,6 @@ function getData(){
         return movie;
       });
     }
->>>>>>> 1df3e279df00ebae7af3671ae2f120487e18d36a
   });
 }
 
