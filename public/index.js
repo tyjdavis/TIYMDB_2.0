@@ -1,7 +1,18 @@
+<<<<<<< HEAD:index.js
 let nowPlayingFromAPI = fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`)
 .then(response => response.json()) //take above promise and convert to json
 .then(object => object.results) //taking the results array from the json
 .then(getDetailsFromAPI)
+=======
+try{
+  let nowPlayingFromAPI = fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US&page=1`)
+  .then(response => response.json()) //take above promise and convert to json
+  .then(object => object.results) //taking the results array from the json
+  .then(getDetailsFromAPI)
+} catch (err) {
+  console.log(err.message);
+}
+>>>>>>> bf06fafecd91101b38052f88c7d48cc5b8069232:public/index.js
 
 
 function getDetailsFromAPI (arr) {
