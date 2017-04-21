@@ -9,6 +9,8 @@
   <body>
     <h2><a href="#">New Movies</a></h2>
     <h1>In Theaters</h1>
+    <div id="player"></div>
+
     <div class="handlebars-demo"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
@@ -25,13 +27,16 @@
             <p class="rating"><strong>User Rating:</strong> {{vote_average}}</p>
             <p class="crew"><strong>Director:</strong> {{crew}}</p>
             <p class="cast"><strong>Stars:</strong> {{cast}}</p>
-            <button>Watch Trailer</button> <button>Add to Watchlist</button> <button>Get Tickets</button>
+            <button class="YT-button">Watch Trailer</button> <button>Add to Watchlist</button> <button>Get Tickets</button>
           </div>
         </div>
       </div>
     </script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="public/api_key.js"></script>
+
+  <script src="api_key.js"></script>
+  <script src="yt_api.js"></script>
+  <script src="movie_constructor.js"></script>
   <script src="jQueryIndex.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   </body>

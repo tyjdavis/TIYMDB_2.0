@@ -6,11 +6,12 @@ const app = express();
 app.use(express.static('./public'));
 
 app.get('/', function(req, res){
-  try {res.sendFile(__dirname  + '/index.html');
-} catch(e) {
-  res.send(e.message);
-  console.log(e.message);
-}
+  try {
+    res.sendFile(__dirname  + '/index.html');
+  } catch(e) {
+    res.send(e.message);
+    console.log(e.message);
+  }
 });
 
 app.listen(3000, function(){
