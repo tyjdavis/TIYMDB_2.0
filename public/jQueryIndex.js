@@ -30,30 +30,19 @@ $.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${keys.moviedb}&la
       });
       return movie;
     });
-    console.log(movies);
-    placeInTemplate(movies);
-    // getDetailsFromAPI(arr);
-});
 
-// function getDetailsFromAPI(arr) {
-//     let promises = arr.map((movie, index) => {
-//         return $.get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${key}&language=en-US`, function(id) {
-//             arr[index].runtime = id.runtime;
-//             return arr[index];
-//         })
-//         $.get(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=${key}`, function() {
-//             arr[index].cast = [];
-//             arr[index].crew = [];
-//             arr[index].cast[0] = movieCastCrewData.cast[0].name;
-//             arr[index].cast[1] = movieCastCrewData.cast[1].name;
-//             arr[index].cast[2] = movieCastCrewData.cast[2].name;
-//             arr[index].cast[3] = movieCastCrewData.cast[3].name;
-//             arr[index].crew[0] = movieCastCrewData.crew[0].name;
-//             return arr[index];
-//         });
-//     });
-//     Promise.all(promises).then(placeInTemplate);
-// }
+    // Take each movie and get youtube ID link
+    movies = movies.map((movie)=>{
+      $.get(`https://www.googleapis.com/youtube/v3/search?key=${keys.google}&part=snippet&q=${movie.title}}trailer`, function(data){
+        movie.YTID = data.items[0].id.videoId;
+      });
+      return movie;
+    });
+
+    movies.forEach((movie)=>{
+      movie.display();
+    });
+});
 
 //putting data into the html
 
