@@ -1,4 +1,5 @@
 const Movie = function(){
+
 };
 
 Movie.prototype.display = function(){
@@ -7,7 +8,6 @@ Movie.prototype.display = function(){
   let html = template(this)
   let $destination = $('.handlebars-demo');
   $destination.append(html);
-
   // Each time a movie is displayed, add the click event for YT.
   let $button = $('.YT-button').last();
   $button.on('click', (e)=>{
