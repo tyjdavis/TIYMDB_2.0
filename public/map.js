@@ -73,3 +73,20 @@ function initAutocomplete() {
   });
 }
 initAutocomplete();
+
+
+let $mapButton = $('.map-button');
+$mapButton.on('click', (e)=>{
+  console.log("test");
+let $mapFrame = $('#map');
+let $mapPopUp = $('#map-backdrop, #map')
+$mapPopUp.animate({'opacity':'.50'}, 300, 'linear')
+$mapPopUp.css('display', 'block');
+$mapFrame.animate({'opacity':'1.00'}, 300, 'linear');
+let $close = $('#map-backdrop');
+$close.on('click', function(){
+  $('#map-backdrop, #map').animate({'opacity':'0'}, 300, 'linear', function(){
+    $('#map-backdrop, #map').css('display', 'none');
+  })
+  })
+})
