@@ -9,8 +9,7 @@
   </head>
   <body>
     <!-- Map -->
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map-backdrop"></div>
+
     <div id="map"></div>
     <!-- End Map -->
 
@@ -19,7 +18,9 @@
     <button class="map-button">Find Nearest Theatre</button>
     <div id="backdrop"></div>
     <div id="player"></div>
+
     <div class="handlebars-demo"></div>
+
     <script id="movies-now-playing-list" type="text/x-handlebars-template">
       <div class="entry">
         <div class="content">
@@ -44,8 +45,7 @@
   <script src="movie_constructor.js"></script>
   <script src="jQueryIndex.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-  <script src="map.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCngutQNTza4uJw43MmVACINwOylk3S4_k&libraries=places&callback=initAutocomplete"
-         async defer></script>
+  <script src="place.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCngutQNTza4uJw43MmVACINwOylk3S4_k&libraries=places&callback=initMap"></script>
   </body>
 </html>
