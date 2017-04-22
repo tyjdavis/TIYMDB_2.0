@@ -13,6 +13,16 @@ Movie.prototype.display = function(){
   $button.on('click', (e)=>{
     // Lightbox appears with YT video.
     let $iFrame = $('#player');
-    $iFrame.attr('src', `https://www.youtube.com/embed/${this.YTID}?enablejsapi=1&amp;origin=http%3A%2F%2F127.0.0.1%3A3000&amp;widgetid=1`)
+    $iFrame.attr('src', `https://www.youtube.com/embed/${this.YTID}?enablejsapi=1&amp;origin=http%3A%2F%2F127.0.0.1%3A3000&amp;widgetid=1`);
+    let $vidPopUp = $('#backdrop, #player')
+    $vidPopUp.animate({'opacity':'.50'}, 300, 'linear')
+    $vidPopUp.css('display', 'block');
+    $iFrame.animate({'opacity':'1.00'}, 300, 'linear');
+    let $close = $('#backdrop');
+    $close.on('click', function(){
+      $('#backdrop, #player').animate({'opacity':'0'}, 300, 'linear', function(){
+        $('#backdrop, #player').css('display', 'none');
+      })
+    })
   });
 };
