@@ -1,3 +1,4 @@
+
 let arrayOfMovies = [];
 
 function main(){
