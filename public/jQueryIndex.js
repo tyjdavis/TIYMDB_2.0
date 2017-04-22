@@ -6,6 +6,7 @@ function main(){
   getCasts();
   getYTs();
   displayMovies();
+  getWiki();
 }
 main();
 
