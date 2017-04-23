@@ -20,6 +20,7 @@ Movie.prototype.display = function(){
     $iFrame.animate({'opacity':'1.00'}, 300, 'linear');
     let $close = $('#vid-backdrop');
     $close.on('click', function(){
+      $iFrame.attr('src', '');
       $('#vid-backdrop, #player').animate({'opacity':'0'}, 300, 'linear', function(){
         $('#vid-backdrop, #player').css('display', 'none');
       })
