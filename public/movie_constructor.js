@@ -9,7 +9,7 @@ Movie.prototype.display = function(){
   let $destination = $('.handlebars-demo');
   $destination.append(html);
   // Each time a movie is displayed, add the click event for YT.
-  let $button = $('.YT-button').last();
+  let $button = $('.waves-effect').last();
   $button.on('click', (e)=>{
     // Lightbox appears with YT video.
     let $iFrame = $('#player');

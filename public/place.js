@@ -52,7 +52,7 @@ function createMarker(place) {
 }
 
 
-let $mapButton = $('.map-button');
+let $mapButton = $('.waves-effect');
 $mapButton.on('click', (e)=>{
   let $mapFrame = $('#map');
   let $mapPopUp = $('#map-backdrop, #map')
