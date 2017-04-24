@@ -75,8 +75,8 @@ a {
 
 #map {
 	position: absolute;
-	width:600px;
-	height:400px;
+	width:60vw;
+	height:60vh;
 	background:#ffffff;
 	z-index:51;
   border-radius: 5px;
@@ -87,6 +87,6 @@ a {
 #map-container {
   position: fixed;
   top:20%;
-	left:27%;
+	left:20%;
   z-index: 52;
 }
