@@ -63,6 +63,6 @@ $mapButton.on('click', (e)=>{
   $close.on('click', function(){
     $('#map-backdrop, #map').animate({'opacity':'0'}, 300, 'linear', function() {
       $('#map-backdrop, #map').css('display', 'none');
-    })
-  })
-})
+    });
+  });
+});
