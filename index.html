@@ -4,12 +4,19 @@
     <meta charset="utf-8"/>
     <title>Movies</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <h2><a href="#">New Movies</a></h2>
-    <h1>In Theaters</h1>
-
+    <div class="container">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo center"><i class="material-icons">theaters</i><strong>New Movies</strong></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><button class="waves-effect waves-light btn">Find Nearest Theater</button></li>
+          </ul>
+        </div>
+      </nav>
     <div id="vid-backdrop"></div>
     <div id="player"></div>
 
@@ -18,35 +25,34 @@
     <div id="map"></div>
     </div>
 
-    <button class="map-button">Find Nearest Theater</button>
     <div class="handlebars-demo"></div>
 
     <script id="movies-now-playing-list" type="text/x-handlebars-template">
-      <div class="entry">
-        <div class="content">
-          <img class="shadow" src="https://image.tmdb.org/t/p/w300{{poster_path}}"/>
-          <div class="info">
-            <h1><a href="#">{{title}}</a></h1>
+      <div class="row">
+        <div class="col s12">
+          <div class="entry">
+            <img class="materialboxed" src="https://image.tmdb.org/t/p/w500{{poster_path}}"/>
+            <h5><a href="#"><strong>{{title}}</strong></a></h5>
             <p class="runtime">{{runtime}} mins</p>
             <p class="release"><strong>Release Date:</strong> {{release_date}}</p>
-            <p class="overview">{{overview}}</p>
+            <p class="overview"><strong>Overview:</strong> {{overview}}</p>
             <p class="rating"><strong>User Rating:</strong> {{vote_average}}</p>
             <p class="crew"><strong>Director:</strong> {{crew}}</p>
             <p class="cast"><strong>Stars:</strong> {{cast}}</p>
-            <button class="YT-button">Watch Trailer</button>
-
+            <button class="waves-effect waves-light btn">Watch Trailer</button>
           </div>
         </div>
       </div>
+    </div>
     </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-  <script src="api_key.js"></script>
-  <script src="yt_api.js"></script>
-  <script src="movie_constructor.js"></script>
-  <script src="place.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCngutQNTza4uJw43MmVACINwOylk3S4_k&libraries=places&callback=initMap"></script>
-  <script src="jQueryIndex.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script src="api_key.js"></script>
+    <script src="yt_api.js"></script>
+    <script src="movie_constructor.js"></script>
+    <script src="place.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCngutQNTza4uJw43MmVACINwOylk3S4_k&libraries=places&callback=initMap"></script>
+    <script src="jQueryIndex.js"></script>
   </body>
 </html>
